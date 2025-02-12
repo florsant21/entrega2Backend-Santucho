@@ -1,10 +1,8 @@
 const socket = io();
 
-// Capturar el formulario y la lista de productos
 const productForm = document.getElementById("productForm");
 const productList = document.getElementById("productList");
 
-// Enviar un nuevo producto al servidor
 productForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const name = document.getElementById("name").value;
@@ -16,7 +14,6 @@ productForm.addEventListener("submit", (event) => {
     }
 });
 
-// Escuchar actualizaciones de productos y renderizar la lista
 socket.on("updateProducts", (products) => {
     productList.innerHTML = "";
     products.forEach((product, index) => {
@@ -26,7 +23,6 @@ socket.on("updateProducts", (products) => {
     });
 });
 
-// Función para eliminar un producto
 function deleteProduct(index) {
     socket.emit("deleteProduct", index);
 }

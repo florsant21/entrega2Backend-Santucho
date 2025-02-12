@@ -1,8 +1,10 @@
 <div>
     <h1>Lista de Productos</h1>
-    <ul>
+    <ul id="productList">
         {{#each products}}
             <li>{{this.name}} - ${{this.price}}</li>
         {{/each}}
     </ul>
 </div>
+
+<script src="/js/home.js"></script>
